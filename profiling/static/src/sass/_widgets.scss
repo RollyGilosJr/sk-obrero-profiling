@@ -1,0 +1,497 @@
+/***********************/
+/*                     */
+/*   Custom Widgets    */
+/*                     */
+/***********************/
+
+
+/***********************/
+/*     Chart Simple    */
+/***********************/
+
+.widget-chart-simple{
+
+  .widget-body{
+    padding-top: 10px;
+  }
+  .chart-value{
+    font-size: 24px;
+  }
+
+  .chart{
+    margin-top: 20px;
+  }
+}
+
+.jqstooltip{
+  box-sizing: content-box;
+}
+
+/***********************/
+/*    Chart Changes    */
+/***********************/
+
+.widget-chart-changes{
+  .chart{
+    margin: -$widget-padding-vertical (-$widget-padding-horizontal) 0;
+    padding: $widget-padding-vertical 0 0;
+  }
+
+  .chart-title{
+    margin: 20px 0 0;
+  }
+
+  .chart-value, .chart-value-change{
+    padding: 0 $widget-padding-horizontal;
+  }
+
+  .chart-value{
+    margin-bottom: 0;
+    font-weight: $font-weight-bold;
+    font-size: 21px;
+    line-height: 1;
+    color: $white;
+  }
+
+  .chart-value-change{
+    color: rgba($white, .7);
+    font-size: $font-size-smaller;
+    margin-bottom: $chart-spacer-y;
+  }
+}
+
+/***********************/
+/*  Chart Stats Simple */
+/***********************/
+
+.widget-chart-stats-simple{
+  > header{
+    h1,h2,h3,h4,h5,h6{
+      margin-bottom: $spacer/4;
+    }
+  }
+
+  .chart{
+    height: 200px;
+    margin: $spacer/2 (-$widget-padding-horizontal) (-$widget-padding-vertical);
+    > .chart-inner{
+      height: 100%;
+    }
+  }
+}
+
+/***********************/
+/*      Big Chart      */
+/***********************/
+
+.widget-big-chart{
+  .chart{
+    height: 200px;
+  }
+}
+
+/***********************/
+/* Part:Progress Stats */
+/***********************/
+
+.progress-stats{
+  .name{
+    margin-bottom: 2px;
+  }
+  .description{
+    margin-bottom: 2px;
+  }
+  .status{
+    margin-top: 15px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    .description + .progress{
+      margin-bottom: 0;
+    }
+  }
+}
+
+/***********************/
+/*    Part:Stats Row   */
+/***********************/
+
+.stats-row{
+  margin-bottom: 15px;
+}
+
+.stat-item{
+  display: inline-block;
+  padding-right: 15px;
+
+  & + .stat-item{
+    padding-left: 15px;
+    border-left: 1px solid $hr-border-color;
+  }
+  .name{
+    margin-bottom: 2px;
+    margin-top: 10px;
+  }
+
+  &.stat-item-mini-chart{
+    position: relative;
+    top: -12px;
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+
+/***********************************/
+/**           ICON LIST           **/
+/***********************************/
+
+.icon-list{
+  margin-top: $spacer;
+}
+
+.icon-list-item{
+  display: flex;
+  font-size: 14px;
+  line-height: 32px;
+  > a{
+    color: $body-main-color;
+    text-decoration: none;
+  }
+
+  .glyphicon,
+  .fa,
+  .fi{
+    width: 32px;
+    margin-right: 10px;
+  }
+
+  .glyphicon {
+    top: 10px;
+  }
+
+  &:hover{
+    .glyphicon,
+    .fa,
+    .fi{
+      font-size: 28px;
+      top: 2px;
+    }
+
+    .fa,
+    .fi{
+      vertical-align: -5px;
+    }
+
+    .glyphicon{
+      vertical-align: -6px;
+    }
+  }
+}
+
+
+/***********************************/
+/**             LOGIN             **/
+/***********************************/
+
+.login-page{
+  background-color: $white;
+  .singin {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 60%;
+  }
+  .container-fluid {
+    .row {
+      height: 100vh;
+    }
+  }
+}
+
+.login-page .page-footer {
+  margin-bottom: 30px;
+  font-size: $font-size-mini;
+  color: $body-main-color-small;
+  text-align: center;
+  @media (min-height: 600px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.widget-login-container{
+  @include media-breakpoint-up(sm) {
+    user-select: auto !important;
+  }
+}
+
+.widget-login-logo{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: $font-weight-normal;
+  .fa-circle{
+    font-size: 13px;
+    margin: 0 20px;
+  }
+}
+
+.widget-login{
+  padding: 30px;
+  z-index: 1;
+
+  > header{
+    padding-bottom: 5px;
+
+
+    h1,h2,h3,h4,h5,h6{
+      font-weight: $font-weight-normal;
+      text-align: left;
+      font-size: 40px;
+    }
+  }
+}
+
+.widget-login-info{
+  font-size: 18px;
+  margin-top: 1px;
+  margin-bottom: 0;
+
+}
+
+.login-form{
+  .group {
+    .widget-login-info {
+      position: relative;
+      margin-top: $spacer;
+      a {
+        text-decoration: none;
+        color: #ff7769;
+        &:hover {
+          color: #a15151;
+        }
+      }
+
+      .line {
+        &:before {
+          display: block;
+          content: '';
+          width: 45%;
+          height: 1px;
+          background: #323232;
+          opacity: 0.2;
+          position: absolute;
+          top: 50%;
+          left: 0;
+        }
+        &:after {
+          display: block;
+          content: '';
+          width: 45%;
+          height: 1px;
+          background: #323232;
+          opacity: 0.2;
+          position: absolute;
+          top: 50%;
+          right: 0;
+        }
+      }
+    }
+  }
+  label {
+    font-size: 14px;
+  }
+  .checkbox {
+    a {
+      text-decoration: none;
+      color: #ff7769;
+      &:hover {
+        color: #a15151;
+      }
+    }
+  }
+  .clearfix {
+    .btn-toolbar {
+      margin-top: $spacer * 2;
+      .auth-btn-circle {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 50%;
+        background: rgba(0,0,0,.2);
+      }
+    }
+  }
+  .form-group {
+    .input-group-prepend {
+      .input-group-text {
+        background: $default;
+      }
+    }
+  }
+  .form-control{
+    font-size: $font-size-base;
+    border: 1px solid rgba(50,50,50,.2);
+    &:focus, &:active {
+      border-color: #ffbf69;
+    }
+  }
+
+  .abc-checkbox {
+    label::before, label::after {
+      top: 0;
+    }
+  }
+}
+
+
+/***********************************/
+/**        SVG in Charts          **/
+/***********************************/
+
+.widget .widget-body svg {
+  width: 100%;
+}
+
+/***********************************/
+/**        Theme helper           **/
+/***********************************/
+
+.theme-helper {
+  width: $sidebar-width;
+  position: fixed;
+  right: -$sidebar-width;
+  top: $navbar-height * 2;
+  z-index: 2;
+  @include transition(right $sidebar-transition-time ease-in-out);
+
+
+
+  &.theme-helper-opened {
+    right: 0;
+  }
+
+  .colors-list{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    .color-box-nav-bar, .color-box-side-bar{
+      min-width: 25px;
+      height: 25px;
+      border: 1px solid #d7dfe6;
+      cursor: pointer;
+      margin: 3px;
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+    }
+    .active{
+      border-color: #00395f;
+    }
+  }
+
+  .theme-helper-toggler {
+    width: $sidebar-width / 4;
+    margin-left: -($sidebar-width / 4);
+    cursor: pointer;
+
+    i {
+      animation-duration: 6500ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    i:first-of-type {
+      animation-name: spin;
+      margin-right: -$spacer * 1.15;
+      vertical-align: text-bottom;
+    }
+
+    i:last-of-type {
+      animation-name: spin-reverse;
+      vertical-align: $font-size-sm;
+    }
+  }
+
+  .theme-helper-spinner {
+    z-index: 200;
+    border-radius: 50% 0 0 50%;
+    padding: $spacer * 0.8 $spacer / 2 $spacer * 0.8 $spacer;
+    font-size: $font-size-lg * 1.4;
+    line-height: initial;
+    box-shadow: $widget-shadow-designated;
+    background: $yellow;
+  }
+
+  .theme-helper-header {
+    padding-top: 0;
+
+    h6, h5 {
+      margin: auto;
+    }
+  }
+
+  .theme-helper-content {
+    box-shadow: rgba(0,0,0,.5);;
+    border-radius: 0;
+    .widget-body {
+      .btn.btn-warning {
+        color: #1b1e3c;
+      }
+    }
+
+  }
+
+  .theme-sharing {
+    font-size: $font-size-lg;
+    cursor: pointer;
+
+    .fa {
+      font-size: 2rem;
+      color: $blue;
+
+      &:hover {
+        color: #104d97;
+      }
+    }
+  }
+
+  .abc-radio-warning input[type="radio"]:not(:checked) + label::before {
+    background-color: theme-color('warning');
+  }
+
+  .abc-radio-secondary input[type="radio"]:not(:checked) + label::before {
+    background-color: theme-color('secondary');
+  }
+
+  @keyframes spin {
+    0% {
+      transform:rotate(0deg);
+    }
+    50% {
+      transform:rotate(360deg);
+    }
+  }
+
+  @keyframes spin-reverse {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .theme-preview {
+    display: block;
+    margin-bottom: 1rem;
+
+    &.active {
+      cursor: not-allowed;
+    }
+  }
+}
