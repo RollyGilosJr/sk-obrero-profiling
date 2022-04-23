@@ -13,12 +13,13 @@ class UserLoginForm(AuthenticationForm):
 
 
     username = UsernameField(widget=forms.TextInput(
-        attrs={'class': 'input100', 'placeholder': 'Username', 'id': 'hello'}))
+        attrs={ 'class': 'form-control input-transparent pl-3', 'placeholder': 'Username', 'id': 'username', 'required': 'true'}))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
-            'class': 'input100',
+            'class': 'form-control input-transparent pl-3',
             'placeholder': 'Password',
-            'id': 'hi',
+            'id': 'password',
+            'required': 'true'
         }
     ))
 
@@ -29,28 +30,103 @@ class profile_form(forms.ModelForm):
         fields = ['first_name',
                   'middle_name',
                   'last_name',
-                  'birthday',
-                  'age',
-                  'sex',
+                  'suffix',
+                  'region',
+                  'province',
+                  'municipality',
+                  'barangay',
                   'purok',
-                  'education_level',
-                  'education_year',
-                  'school']
-        labels = {
-            "first_name": "",
-             'middle_name': "",
-             'last_name': "",
-             'birthday': "",
-             'age': "",
-             'sex': "",
-             'purok': "",
-             'education_level': "",
-             'education_year': "",
-             'school': ""}
-        widgets = {
-            'birthday': DateInput(attrs={'type': 'date'})
-        }
+                  'sex',
+                  'age',
+                  'birthday',
+                  'email',
+                  'contact_number',
+                  'civil_status',
+                  'youth_classification',
+                  'youth_age_group',
+                  'work_status',
+                  'educational_background',
+                  'sk_voter',
+                  'national_voter'
 
+                  
+                  
+                  
+                  ]
+        labels = {
+            'first_name':'',
+            'middle_name':'',
+            'last_name':'',
+            'suffix':'',
+            'region':'',
+            'province':'',
+            'municipality':'',
+            'barangay':'',
+            'purok':'',
+            'sex':'',
+            'age':'',
+            'birthday':'',
+            'email':'',
+            'contact_number':'',
+            'civil_status':'',
+            'youth_classification':'',
+            'youth_age_group':'',
+            'work_status':'',
+            'educational_background':'',
+            'sk_voter':'',
+            'national_voter':''
+             }
+        widgets = {
+            'birthday': DateInput(attrs={'type': 'date'}),
+            
+        }
+    def __init__(self, *args, **kwargs):
+        super(profile_form, self).__init__(*args, **kwargs)
+        self.fields['first_name'].widget.attrs['class'] = 'form-control'
+        self.fields['middle_name'].widget.attrs['class'] = 'form-control'
+        self.fields['last_name'].widget.attrs['class'] = 'form-control'
+        self.fields['suffix'].widget.attrs['class'] = 'form-control'
+        self.fields['region'].widget.attrs['class'] = 'form-control'
+        self.fields['province'].widget.attrs['class'] = 'form-control'
+        self.fields['municipality'].widget.attrs['class'] = 'form-control'
+        self.fields['barangay'].widget.attrs['class'] = 'form-control'
+        self.fields['purok'].widget.attrs['class'] = 'form-control'
+        self.fields['sex'].widget.attrs['class'] = 'form-control'
+        self.fields['age'].widget.attrs['class'] = 'form-control'
+        self.fields['birthday'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['contact_number'].widget.attrs['class'] = 'form-control'
+        self.fields['civil_status'].widget.attrs['class'] = 'form-control'
+        self.fields['youth_classification'].widget.attrs['class'] = 'form-control'
+        self.fields['youth_age_group'].widget.attrs['class'] = 'form-control'
+        self.fields['work_status'].widget.attrs['class'] = 'form-control'
+        self.fields['educational_background'].widget.attrs['class'] = 'form-control'
+        self.fields['sk_voter'].widget.attrs['class'] = 'form-control'
+        self.fields['national_voter'].widget.attrs['class'] = 'form-control'
+        
+        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
+        self.fields['middle_name'].widget.attrs['placeholder'] = 'Middle Name'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
+        self.fields['suffix'].widget.attrs['placeholder'] = 'Suffix'
+        self.fields['region'].widget.attrs['placeholder'] = 'Region'
+        self.fields['province'].widget.attrs['placeholder'] = 'Province'
+        self.fields['municipality'].widget.attrs['placeholder'] = 'Municipality'
+        self.fields['barangay'].widget.attrs['placeholder'] = 'Barangay'
+        self.fields['purok'].widget.attrs['placeholder'] = 'Purok'
+        self.fields['sex'].widget.attrs['placeholder'] = 'Sex'
+        self.fields['age'].widget.attrs['placeholder'] = 'Age'
+        self.fields['birthday'].widget.attrs['placeholder'] = 'Birthday'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['contact_number'].widget.attrs['placeholder'] = 'Contact Number'
+        self.fields['civil_status'].widget.attrs['placeholder'] = 'Civil Status'
+        self.fields['youth_classification'].widget.attrs['placeholder'] = 'Youth Classification'
+        self.fields['youth_age_group'].widget.attrs['placeholder'] = 'Youth Age Group'
+        self.fields['work_status'].widget.attrs['placeholder'] = 'Work Status'
+        self.fields['educational_background'].widget.attrs['placeholder'] = 'Educational Background'
+        self.fields['sk_voter'].widget.attrs['placeholder'] = 'SK Voter'
+        self.fields['national_voter'].widget.attrs['placeholder'] = 'National Voter'
+
+        
     # def clean(self):
     #     super(profile_form, self).clean()
     #     first_name = self.cleaned_data['first_name']

@@ -1,202 +1,148 @@
 {% extends 'dashboard/index.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-
-
-
 {% block content %}
+    <div class="content-wrapper container">
+        <div class="page-heading">
+            <h3>{{obj.full_name}} > Edit</h3>
+        </div>
+     
+        <div class="page-content">
+            <div class="card-body">
+                {% for message in messages %}
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h6 class="h3 mb-0 text-gray-800">Profile / {{ data.full_name }} / Edit</h6>
+                <div class="alert alert-danger" role="alert">
+                       User already exists!
+                   </div>
+           {% endfor %}
+            <form method="POST">
+                {% csrf_token %}
+            <section class="section">
+                <div class="card">
+                    <div class="card-header"
+                         style="background-color: #FBDB48; padding-left: 25px; padding-top: 15px; padding-bottom: 15px">
+                        <h4>Profile</h4>
+                    </div>
+                    <div class="card-body" style="padding-top: 25px">
+                        <div class='form-group'>
 
+                            <div class="row">
+                                    <div class="col-md-2" style="padding-top: 10px">Full Name:</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.first_name }}</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.middle_name }}</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.last_name }}</div>
+                                    <div class="col-md-1" style="padding-top: 10px">{{ form.suffix }}</div>
+                                </div>
+                        </div>
+                        <div class='form-group'>
+
+                            <div class="row">
+                                    <div class="col-md-2" style="padding-top: 10px">Address:</div>
+                                    <div class="col-md-2" style="padding-top: 10px">{{ form.region }}</div>
+                                    <div class="col-md-2" style="padding-top: 10px">{{ form.province }}</div>
+                                    <div class="col-md-2" style="padding-top: 10px">{{ form.municipality }}</div>
+                                    <div class="col-md-2" style="padding-top: 10px">{{ form.barangay }}</div>
+                                    <div class="col-md-2" style="padding-top: 10px">{{ form.purok }}</div>
+                                </div>
+                        </div>
+                        <div class='form-group'>
+
+                            <div class="row">
+                                    <div class="col-md-2" style="padding-top: 10px">Sex assigned by birth:</div>
+                                    <div class="col-md-2" style="padding-top: 10px">{{ form.sex }}</div>
+                                    <div class="col-md-1" style="padding-top: 10px">Age:</div>
+                                    <div class="col-md-1" style="padding-top: 10px">{{ form.age }}</div>
+                                    <div class="col-md-1" style="padding-top: 10px">Birthday:</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.birthday }}</div>
+                                </div>
+                        </div>
+                        <div class='form-group'>
+
+                            <div class="row">
+                                    <div class="col-md-2" style="padding-top: 10px">Email Address:</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.email }}</div>
+                                    <div class="col-md-2" style="padding-top: 10px">Contact Number:</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.contact_number }}</div>
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <div class="card">
+                    <div class="card-header"
+                    style="background-color: #FBDB48; padding-left: 25px; padding-top: 15px; padding-bottom: 15px">
+                    <h4>Demographic Characteristics</h4>
+                    </div>
+                    <div class="card-body" style="padding-top: 25px">
+                        <div class='form-group'>
+
+                            <div class="row">
+                                    <div class="col-md-2" style="padding-top: 10px">Civil Status:</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.civil_status }}</div>
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-2" style="padding-top: 10px">Youth Classification:</div>
+                                    <div class="col-md-3" style="padding-top: 10px">{{ form.youth_classification }}</div>
+                                    
+                                   
+                                </div>
+                        </div>
+                        <div class='form-group'>
+
+                            <div class="row">
+                                <div class="col-md-2" style="padding-top: 10px">Youth Age Group:</div>
+                                <div class="col-md-3" style="padding-top: 10px">{{ form.youth_age_group }}</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2" style="padding-top: 10px">Work Status:</div>
+                                <div class="col-md-3" style="padding-top: 10px">{{ form.work_status }}</div>
+                                
+                                </div>
+                        </div>
+                        <div class='form-group'>
+                                
+                            <div class="row">
+                                <div class="col-md-2" style="padding-top: 10px; ">Educational Background:</div>
+                                <div class="col-md-3" style="padding-top: 10px">{{ form.educational_background }}</div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1" style="padding-top: 10px">SK Voter:</div>
+                                <div class="col-md-1" style="padding-top: 10px">{{ form.sk_voter }}</div>
+                                <div class="col-md-2" style="padding-top: 10px">National Voter:</div>
+                                <div class="col-md-1" style="padding-top: 10px">{{ form.national_voter }}</div>
+                                
+                                </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <div style="display:flex;justify-content:center;align-items:center; margin-bottom: 30px">
+                <div>
+                    <button type="submit" class="btn btn-lg btn-outline-primary">Submit</button>
+                    <button type="reset" class="btn btn-lg btn-outline-secondary">Reset</button>
+                    
+                </div>
+              </div>
+            </form>
+        </div>
     </div>
-
-    <form method="POST" class="form-group">
-        {% csrf_token %}
-        <div style="display: flex; justify-content: center; align-items: center">
-
-            <button type="submit" class="btn btn-primary" style="margin:0px 10px 0px 10px;"> Save</button>
-
-            <a href="{% url 'profile_page' data.slug %}" class="btn btn-secondary " style="margin:0px 10px 0px 10px;">
-
-                <span class="text"> Discard </span>
-            </a>
-        </div>
-
-        <hr>
-        {% for message in messages %}
-
-         <div class="alert alert-danger" role="alert">
-                User already exists!
-            </div>
-    {% endfor %}
-
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-primary">Personal Information</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="first_name_input">First Name</label>
-                            </div>
-                            <div class="col">
-                                {{ form.first_name | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="middle_name_input">Middle Name</label>
-                            </div>
-                            <div class="col">
-                                {{ form.middle_name | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-
+    {% block footer %}
+    <footer>
+        <div class="container">
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>
+                        2022 &copy; SK - Obrero
+                    </p>
                 </div>
-                <div class="row">
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="last_name_input">Last Name</label>
-                            </div>
-                            <div class="col">
-                                {{ form.last_name | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row">
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="birthday_input">Birthday</label>
-                            </div>
-                            <div class="col">
-                                {{ form.birthday | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="age_input">Age</label>
-                            </div>
-                            <div class="col">
-                                {{ form.age | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="purok_input">Purok</label>
-                            </div>
-                            <div class="col">
-                                {{ form.purok | as_crispy_field }}
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="sex_input">Sex</label>
-                            </div>
-                            <div class="col">
-
-                                {{ form.sex | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
+                <div class="float-end">
+                    <p>
+                    Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by R. Buen
+                </p>
             </div>
         </div>
-
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-primary">Education Information</h5>
-            </div>
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="education_level_input">Education Level</label>
-                            </div>
-                            <div class="col">
-
-                                {{ form.education_level | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-4" style="padding-top: 5px ; ">
-                                <label for="education_year_input">Education Year</label>
-                            </div>
-                            <div class="col">
-
-                                {{ form.education_year | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-sm" style="margin-top: 10px">
-                        <div class="row">
-                            <div class="col-2 col-xs-4" style="padding-top: 5px ; ">
-                                <label for="school_input">School</label>
-                            </div>
-                            <div class="col">
-                                {{ form.school | as_crispy_field }}
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-            </div>
-        </div>
-    </form>
-
-
-
-
-
-
+    </div>
+</footer>
+{% endblock  %}
 {% endblock %}
+

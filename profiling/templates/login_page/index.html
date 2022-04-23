@@ -1,78 +1,101 @@
 {% load static %}
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>SK Diamante</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{% static 'login_page/images/icons/favicon.ico'%}"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/vendor/bootstrap/css/bootstrap.min.css'%}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'%}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/vendor/animate/animate.css'%}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/vendor/css-hamburgers/hamburgers.min.css'%}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/vendor/select2/select2.min.css'%}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/css/util.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'login_page/css/main.css'%}">
-<!--===============================================================================================-->
+    <title>SK - Obrero</title>
+    <link href="{% static 'dist/css/application.min.css'%}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'dist/img/favicon.png'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+        chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+        https://code.google.com/p/chromium/issues/detail?id=332189
+        */
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36759672-9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-36759672-9');
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script
+        type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym"); ym(48020168, "init", { id: 48020168, clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true, trackHash: true, ecommerce: "dataLayer" }); </script>
+    <!-- /Yandex.Metrika counter -->
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('{% static 'login_page/images/background.jpeg'%}');">
-			<div class="wrap-login100 p-t-50 p-b-50">
-				<form class="login100-form validate-form" method="POST">
-                    {% csrf_token %}
-					<div class="login100-form-avatar">
-						<img src="{% static 'dashboard/img/sklogo.png' %}" alt="SK Logo" >
-					</div>
 
-					<span class="login100-form-title p-t-20 p-b-45">
-						Sangguniang Kabataan
-                        Baranggay Diamante
-					</span>
+<body class="login-page">
+    <div class="container-fluid">
+        <!-- main page content. the place to put widgets in. usually consists of .row > .col-lg-* > .widget.  -->
+        <main id="content" class="widget-login-container" role="main">
+            <!-- Page content -->
+        <div class="row align-item-center">
+            <div class="col-xl-3 offset-sm-1 offset-0 col-md-6 col-10 my-auto">
+                <section class="widget widget-login bg-transparent animated fadeInUp">
+                    <header>
+                        <h2>Login</h2>
+                    </header>
+                    <div class="widget-body">
+                        <p class="widget-login-info">
+                            Welcome Back! Please login to your account
+                        </p>
+                        <form class="login-form mt-lg" method="POST">
+							{% csrf_token %}
+                            <div role="group" class="form-group">
+                                <label for="email" class="d-block">Username</label>
+                                <div>
+                                    <div role="group" class="input-group">
+                                        {% comment %} <input id="username" type="text" value="admin" required="required" placeholder="Admin" class="form-control input-transparent pl-3"> {% endcomment %}
+										{{ form.username  }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="group" class="form-group">
+                                <label for="password" class="d-block">Password</label>
+                                <div>
+                                    <div role="group" class="input-group">
+                                        {% comment %} <input id="password" type="password" value="password" required="required" placeholder="Password" class="form-control input-transparent pl-3"> {% endcomment %}
+										{{form.password}}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="clearfix">
+                                <div class="btn-toolbar">
+									<button type="submit" class="btn btn-warning btn-block">Login</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <img src="{% static 'assets/images/logo/logo-sk.png'%}" class="singin" alt="signin">
+        </div>
 
-					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
-                        {{ form.username | as_crispy_field }}
-					</div>
+        
+        </main>
+    </div>
+    <!-- The Loader. Is shown when pjax happens -->
+    <div class="loader-wrap hiding hide">
+        <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+    </div>
 
-					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
-                        {{ form.password | as_crispy_field }}
-					</div>
+    <!-- common libraries. required for every page-->
 
-					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
+   
 
+    <!-- common app js -->
+    <script src="{% static 'dist/js/settings.js'%}"></script>
+    <script src="{% static 'dist/js/app.js'%}"></script>
 
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	
-
-	
-<!--===============================================================================================-->	
-	<script src="{% static 'login_page/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'login_page/vendor/bootstrap/js/popper.js'%}"></script>
-	<script src="{% static 'login_page/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'login_page/vendor/select2/select2.min.js'%}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'login_page/js/main.js'%}"></script>
-
+    <!-- Page scripts -->
 </body>
+
 </html>
