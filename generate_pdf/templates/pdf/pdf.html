@@ -1,0 +1,110 @@
+{% load static %}
+<html>
+<head>
+    <style>
+        * {
+            font-size: 15px;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        table th {
+            text-align: left;
+            padding: 3px;
+            padding-bottom: 0;
+        }
+
+        table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 3px;
+            padding-bottom: 0;
+        }
+
+        @page {
+            size: 936pt 612pt;
+            @frame header_frame {
+            -pdf-frame-content: header_content;
+            left: 20pt;
+            width: 900pt;
+            top: 40pt;
+            height: 102pt;
+            ;
+        }
+
+        @frame content_frame {
+        left:20pt;
+        width:900pt;
+        top:150pt;
+        height:400pt;
+        }
+
+
+
+
+        }
+
+
+
+    </style>
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/logo-sk - Copy.png'%}">
+
+    <title>SK - OBRERO</title>
+
+</head>
+
+<body>
+<div id="header_content" style="text-align: center">
+    <p>Republic of the Philippines <br>
+        Province of Sorsogon <br>
+        Municipality of Bulan <br>
+        <b> BARANGAY OBRERO </b></p>
+    <b style="font-size: 20pt;" >KATIPUNAN NG KABATAAN YOUTH PROFILE </b>
+</div>
+
+
+<div id="content_frame" >
+
+    <table >
+        <tr>
+            <th style="text-align: center; font-size: 10pt"> Name</th>
+            <th style="text-align: center; font-size: 9pt; width: 3%"> Age</th>
+            <th style="text-align: center; font-size: 9pt; width: 6%"> Birthday</th>
+            <th style="text-align: center; font-size: 9pt; width: 4%"> Sex</th>
+            <th style="text-align: center; font-size: 9pt; width: 5%"> Civil Status</th>
+            <th style="text-align: center; font-size: 9pt; width: 9%"> Youth Classification</th>
+            <th style="text-align: center; font-size: 9pt; width: 7%"> Youth Age Group</th>
+            <th style="text-align: center; font-size: 9pt; width: 13%"> Email Address</th>
+            <th style="text-align: center; font-size: 9pt; width: 6%"> Contact Number</th>
+            <th style="text-align: center; font-size: 9pt; width: 7%"> Highest Educational Attainment</th>
+            <th style="text-align: center; font-size: 9pt; width: 8%"> Work Status</th>
+            <th style="text-align: center; font-size: 9pt; width: 6%"> Registered SK Voter?</th>
+            <th style="text-align: center; font-size: 9pt; width: 6%"> Registered National Voter?</th>
+        </tr>
+        {% for data in record %}
+            <tr>
+                <td style="text-align: center; font-size: 10pt">{{ data.full_name }}</td>
+                <td style="text-align: center; font-size: 8pt">  {% if data.age != None %}{{ data.age }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.birthday != None %}{{ data.birthday }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.sex != None %}{{ data.sex }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.civil_status != None %}{{ data.civil_status }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.youth_classification != None %}{{ data.youth_classification }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.youth_age_group != None %}{{ data.youth_age_group }} {% endif %}</td>
+                <td style="text-align: left; font-size: 8pt; word-break:break-all;"> {% if data.email_address != None %}{{ data.email_address }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.contact_number != None %}{{ data.contact_number }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.educational_background != None %}{{ data.educational_background }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.work_status != None %}{{ data.work_status }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.sk_voter != None %}{{ data.sk_voter }} {% endif %}</td>
+                <td style="text-align: center; font-size: 8pt"> {% if data.national_voter != None %}{{ data.national_voter }} {% endif %}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

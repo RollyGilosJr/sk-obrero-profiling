@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'profiling.apps.ProfilingConfig',
+    'generate_pdf.apps.GeneratePdfConfig',
     'crispy_forms',
 ]
 

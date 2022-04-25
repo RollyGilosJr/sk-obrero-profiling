@@ -18,10 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from profiling import urls
+from generate_pdf import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('profiling.urls'))
+    path('', include('profiling.urls')),
+    path('', include('generate_pdf.urls'))
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
