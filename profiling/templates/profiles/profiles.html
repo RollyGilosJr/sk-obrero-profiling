@@ -19,6 +19,7 @@
                                     <thead>
                                         <tr>
                                             <th>Full Name</th>
+                                            <th>Sex</th>
                                             <th>Purok</th>
                                             <th>Age</th>
                                             <th>Youth Classification</th>
@@ -32,6 +33,7 @@
                                         {% for data in datas%}
                                         <tr>
                                             <td><a href="{% url 'profile_page' data.slug%}">{{data.full_name}}</a></td>
+                                            <td>{{ data.sex | default_if_none:"" }}</td>
                                             <td>{{data.purok| default_if_none:""}}</td>
                                             <td>{{data.age| default_if_none:""}}</td>
                                             <td>{{data.youth_classification| default_if_none:""}}</td>
