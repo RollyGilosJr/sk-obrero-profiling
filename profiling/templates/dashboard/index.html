@@ -1,477 +1,618 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SK - Obrero</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
-              rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/vendors/iconly/bold.css' %}">
-        <link rel="stylesheet"
-              href="{% static 'assets/vendors/perfect-scrollbar/perfect-scrollbar.css' %}">
-        <link rel="stylesheet"
-              href="{% static 'assets/vendors/bootstrap-icons/bootstrap-icons.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
-            <link rel="shortcut icon" href="{% static 'assets/images/logo/logo-sk - Copy.png'%}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK - Obrero</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/iconly/bold.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'assets/vendors/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'assets/vendors/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/logo-sk - Copy.png' %}">
 
-    </head>
-    <body>
-        <div id="app">
-            <div id="main" class="layout-horizontal">
-                {% include 'dashboard/sidebar.html' %}
-                {% block content %}
-                    <div class="content-wrapper container">
-                        <div class="page-heading">
-                            <h3>Dashboard</h3>
-                        </div>
-                        <div class="page-content">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon purple">
-                                                        <i class="iconly-boldShow"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Total Profiles</h6>
-                                                    <h6 class="font-extrabold mb-0">{{total_profile}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(255, 153, 153)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Elementary Level</h6>
-                                                    <h6 class="font-extrabold mb-0">{{elem_level}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(255, 204, 153)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Elementary Graduate</h6>
-                                                    <h6 class="font-extrabold mb-0">{{elem_grad}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(255, 255, 153)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">High School Level</h6>
-                                                    <h6 class="font-extrabold mb-0">{{hs_level}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(204, 255, 153)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">High School Graduate</h6>
-                                                    <h6 class="font-extrabold mb-0">{{hs_grad}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(153, 255, 153)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Vocational Graduate</h6>
-                                                    <h6 class="font-extrabold mb-0">{{voc_grad}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(153, 255, 204)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">College Level</h6>
-                                                    <h6 class="font-extrabold mb-0">{{col_level}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(153, 255, 255)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">College Graduate</h6>
-                                                    <h6 class="font-extrabold mb-0">{{col_grad}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(153, 204, 255)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Masters Level</h6>
-                                                    <h6 class="font-extrabold mb-0">{{master_level}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(153, 153, 255)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Masters Graduate</h6>
-                                                    <h6 class="font-extrabold mb-0">{{master_grad}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(204, 153, 255)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Doctorate Level</h6>
-                                                    <h6 class="font-extrabold mb-0">{{doct_level}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="stats-icon" style = "background-color: rgb(255, 153, 255)">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h6 class="text-muted font-semibold">Doctorate Graduate</h6>
-                                                    <h6 class="font-extrabold mb-0">{{doct_grad}}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Civil Status Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="civil-status-bar"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Civil Status Pie Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="civil-status-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Youth Classification Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="youth-classification-bar"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Youth Classification Pie Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="youth-classification-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Youth Age Group Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="youth-age-group-bar"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Youth Age Group Pie Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="youth-age-group-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Work Status Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="work-status-bar"></canvas>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Work Status Pie Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="work-status-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Educational Background Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="educational-background-bar"></canvas>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                Educational Background Pie Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="educational-background-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                SK Voter Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="sk-voter-bar"></canvas>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                SK Voter Pie Chart
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="sk-voter-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                National Voter Bar Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="national-voter-bar"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>
-                                                National Voter Pie Graph
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <canvas id="national-voter-pie"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                        </section>
-                    </div>
+</head>
+<body>
+<div id="app">
+    <div id="main" class="layout-horizontal">
+        {% include 'dashboard/sidebar.html' %}
+        {% block content %}
+            <div class="content-wrapper container">
+                <div class="page-heading">
+                    <h3>Dashboard</h3>
                 </div>
-                
-                {% block footer %}
-                    <footer>
-                        <div class="container">
-                            <div class="footer clearfix mb-0 text-muted">
-                                <div class="float-start">
-                                    <p>
-                                        2022 &copy; SK - Obrero
-                                    </p>
+                <div class="page-content">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon purple">
+                                                <i class="iconly-boldShow"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Total Profiles</h6>
+                                            <h6 class="font-extrabold mb-0">{{ total_profile }}</h6>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="float-end">
-                                    <p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(255, 153, 153)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Elementary Level</h6>
+                                            <h6 class="font-extrabold mb-0">{{ elem_level }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(255, 204, 153)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Elementary Graduate</h6>
+                                            <h6 class="font-extrabold mb-0">{{ elem_grad }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(255, 255, 153)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">High School Level</h6>
+                                            <h6 class="font-extrabold mb-0">{{ hs_level }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(204, 255, 153)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">High School Graduate</h6>
+                                            <h6 class="font-extrabold mb-0">{{ hs_grad }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(153, 255, 153)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Vocational Graduate</h6>
+                                            <h6 class="font-extrabold mb-0">{{ voc_grad }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(153, 255, 204)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">College Level</h6>
+                                            <h6 class="font-extrabold mb-0">{{ col_level }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(153, 255, 255)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">College Graduate</h6>
+                                            <h6 class="font-extrabold mb-0">{{ col_grad }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(153, 204, 255)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Masters Level</h6>
+                                            <h6 class="font-extrabold mb-0">{{ master_level }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(153, 153, 255)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Masters Graduate</h6>
+                                            <h6 class="font-extrabold mb-0">{{ master_grad }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(204, 153, 255)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Doctorate Level</h6>
+                                            <h6 class="font-extrabold mb-0">{{ doct_level }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="stats-icon" style="background-color: rgb(255, 153, 255)">
+                                                <i class="iconly-boldProfile"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h6 class="text-muted font-semibold">Doctorate Graduate</h6>
+                                            <h6 class="font-extrabold mb-0">{{ doct_grad }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Sex Assigned by Birth Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="sex-bar"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Sex Assigned by Birth Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="sex-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Civil Status Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="civil-status-bar"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Civil Status Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="civil-status-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Youth Classification Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="youth-classification-bar"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Youth Classification Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="youth-classification-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Youth Age Group Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="youth-age-group-bar"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Youth Age Group Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="youth-age-group-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Work Status Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="work-status-bar"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Work Status Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="work-status-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Educational Background Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="educational-background-bar"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        Educational Background Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="educational-background-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        SK Voter Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="sk-voter-bar"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        SK Voter Pie Chart
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="sk-voter-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        National Voter Bar Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="national-voter-bar"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>
+                                        National Voter Pie Graph
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="national-voter-pie"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+                </div>
+            </div>
+
+            {% block footer %}
+                <footer>
+                    <div class="container">
+                        <div class="footer clearfix mb-0 text-muted">
+                            <div class="float-start">
+                                <p>
+                                    2022 &copy; SK - Obrero
+                                </p>
+                            </div>
+                            <div class="float-end">
+                                <p>
                                     Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by R. Buen
                                 </p>
                             </div>
                         </div>
                     </div>
                 </footer>
-            {% endblock  %}
+            {% endblock %}
         {% endblock %}
     </div>
 </div>
-<script src="{% static 'assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
-<script src="{% static 'assets/js/bootstrap.bundle.min.js'%}"></script>
-<script src="{% static 'assets/vendors/apexcharts/apexcharts.js'%}"></script>
-<script src="{% static 'assets/js/pages/dashboard.js'%}"></script>
-<script src="{% static 'assets/js/pages/horizontal-layout.js'%}"></script>
+<script src="{% static 'assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendors/apexcharts/apexcharts.js' %}"></script>
+<script src="{% static 'assets/js/pages/dashboard.js' %}"></script>
+<script src="{% static 'assets/js/pages/horizontal-layout.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 {% block js %}
-<script>
+
+    <script>
+    const ct = document.getElementById('sex-bar').getContext('2d');
+    const myChar = new Chart
+    (ct,
+        {
+            type: 'bar',
+            data:
+                {
+
+                    labels:
+                    [
+                        {% for labels in sex_data %}
+                            '{{ labels }}',
+                        {% endfor %}
+                    ],
+
+                    datasets:
+                    [
+                        {
+                            label: 'Count',
+                            data:
+                            [
+                                {% for keys, value in sex_data.items %}
+                                    '{{ value }}',
+                                {% endfor %}
+                            ],
+                            backgroundColor:
+                            [
+                                'rgba(255, 153, 153, 0.2)',
+                                'rgba(255, 204, 153, 0.2)',
+                                'rgba(255, 255, 153, 0.2)',
+                                'rgba(204, 255, 153, 0.2)',
+                                'rgba(153, 255, 153, 0.2)',
+                                'rgba(153, 255, 204, 0.2)',
+                                'rgba(153, 255, 255, 0.2)',
+                                'rgba(153, 204, 255, 0.2)',
+                            ],
+                            borderColor:
+                            [
+                                'rgba(255, 153, 153, 1)',
+                                'rgba(255, 204, 153, 1)',
+                                'rgba(255, 255, 153, 1)',
+                                'rgba(204, 255, 153, 1)',
+                                'rgba(153, 255, 153, 1)',
+                                'rgba(153, 255, 204, 1)',
+                                'rgba(153, 255, 255, 1)',
+                                'rgba(153, 204, 255, 1)',
+                            ],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
+                }
+        }
+    );
+
+
+</script>
+
+    <script>
+    var xValues = [
+    {% for labels in sex_data %}
+    '{{ labels }}',
+{% endfor %}
+];
+    var yValues = [
+    {% for keys, value in sex_data.items %}
+                    '{{ value }}',
+                {% endfor %}
+    ];
+    var barColors = [
+    'rgba(255, 153, 153, 1)',
+'rgba(255, 204, 153, 1)',
+'rgba(255, 255, 153, 1)',
+'rgba(204, 255, 153, 1)',
+'rgba(153, 255, 153, 1)',
+'rgba(153, 255, 204, 1)',
+'rgba(153, 255, 255, 1)',
+'rgba(153, 204, 255, 1)',
+    ];
+
+    new Chart("sex-pie", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+    });
+
+
+    </script>
+
+    <script>
     const ctx1 = document.getElementById('civil-status-bar').getContext('2d');
     const myChart1 = new Chart(ctx1, {
         type: 'bar',
         data: {
             
             labels: [
-            {% for labels in civil_status_data%}
-                '{{labels}}',
-            {%endfor%}
+            {% for labels in civil_status_data %}
+                '{{ labels }}',
+            {% endfor %}
             ],
             
             datasets: [{
                 label: 'Count',
                 data: [
-                {% for keys, value in civil_status_data.items%}
-                    '{{value}}',
-                {%endfor%}
+                {% for keys, value in civil_status_data.items %}
+                    '{{ value }}',
+                {% endfor %}
                 ],
                 backgroundColor: [
                     'rgba(255, 153, 153, 0.2)',
@@ -496,26 +637,38 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+       options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
-<script>
+
+    </script>
+
+    <script>
     var xValues = [
-    {% for labels in civil_status_data%}
-    '{{labels}}',
-{%endfor%}
+    {% for labels in civil_status_data %}
+    '{{ labels }}',
+{% endfor %}
 ];
     var yValues = [
-    {% for keys, value in civil_status_data.items%}
-                    '{{value}}',
-                {%endfor%}
+    {% for keys, value in civil_status_data.items %}
+                    '{{ value }}',
+                {% endfor %}
     ];
     var barColors = [
     'rgba(255, 153, 153, 1)',
@@ -538,24 +691,26 @@
         }]
       },
     });
-</script>
 
-<script>
+
+    </script>
+
+    <script>
     const ctx2 = document.getElementById('youth-classification-bar').getContext('2d');
     const myChart2 = new Chart(ctx2, {
         type: 'bar',
         data: {
             labels: [
-            {% for labels in youth_classification_data%}
-                '{{labels}}',
-            {%endfor%}
+            {% for labels in youth_classification_data %}
+                '{{ labels }}',
+            {% endfor %}
             ],
             datasets: [{
                 label: 'Count',
                 data: [
-                {% for keys, value in youth_classification_data.items%}
-                    '{{value}}',
-                {%endfor%}
+                {% for keys, value in youth_classification_data.items %}
+                    '{{ value }}',
+                {% endfor %}
                 ],
                 backgroundColor: [
                 'rgba(255, 153, 153, 0.2)',
@@ -576,23 +731,35 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+       options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
-<script>
-    var xValues = [{% for labels in youth_classification_data%}
-    '{{labels}}',
-{%endfor%}];
-    var yValues = [{% for keys, value in youth_classification_data.items%}
-    '{{value}}',
-{%endfor%}];
+
+    </script>
+
+    <script>
+    var xValues = [{% for labels in youth_classification_data %}
+    '{{ labels }}',
+{% endfor %}];
+    var yValues = [{% for keys, value in youth_classification_data.items %}
+    '{{ value }}',
+{% endfor %}];
     var barColors = [
     'rgba(255, 153, 153, 1)',
     'rgba(255, 204, 153, 1)',
@@ -613,23 +780,25 @@
       },
       
     });
-</script>
 
 
-<script>
+    </script>
+
+
+    <script>
     const ctx3 = document.getElementById('youth-age-group-bar').getContext('2d');
     const myChart3 = new Chart(ctx3, {
         type: 'bar',
         data: {
-            labels: [{% for labels in youth_age_group_date%}
-            '{{labels}}',
-        {%endfor%}],
+            labels: [{% for labels in youth_age_group_date %}
+            '{{ labels }}',
+        {% endfor %}],
             datasets: [{
                 label: 'Count',
                 data: [
-                {% for keys, value in youth_age_group_date.items%}
-                    '{{value}}',
-                {%endfor%}
+                {% for keys, value in youth_age_group_date.items %}
+                    '{{ value }}',
+                {% endfor %}
                 ],
                 backgroundColor: [
                 'rgba(255, 153, 153, 0.2)',
@@ -644,23 +813,35 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
-<script>
-    var xValues = [{% for labels in youth_age_group_date%}
-    '{{labels}}',
-{%endfor%}];
-    var yValues = [{% for keys, value in youth_age_group_date.items%}
-    '{{value}}',
-{%endfor%}];
+
+    </script>
+
+    <script>
+    var xValues = [{% for labels in youth_age_group_date %}
+    '{{ labels }}',
+{% endfor %}];
+    var yValues = [{% for keys, value in youth_age_group_date.items %}
+    '{{ value }}',
+{% endfor %}];
     var barColors = [
     'rgba(255, 153, 153, 1)',
     'rgba(255, 204, 153, 1)',
@@ -678,24 +859,26 @@
       },
       
     });
-</script>
 
-<script>
+
+    </script>
+
+    <script>
     const ctx4 = document.getElementById('work-status-bar').getContext('2d');
     const myChart4 = new Chart(ctx4, {
         type: 'bar',
         data: {
             labels: [
-            {% for labels in work_status_data%}
-                '{{labels}}',
-            {%endfor%}
+            {% for labels in work_status_data %}
+                '{{ labels }}',
+            {% endfor %}
             ],
             datasets: [{
                 label: 'Count',
                 data: [
-                {% for keys, value in work_status_data.items%}
-                    '{{value}}',
-                {%endfor%}
+                {% for keys, value in work_status_data.items %}
+                    '{{ value }}',
+                {% endfor %}
                 ],
                 backgroundColor: [
                 'rgba(255, 153, 153, 0.2)',
@@ -714,26 +897,37 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+       options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
-<script>
+    </script>
+
+    <script>
     var xValues = [
-    {% for labels in work_status_data%}
-    '{{labels}}',
-{%endfor%}
+    {% for labels in work_status_data %}
+    '{{ labels }}',
+{% endfor %}
 ];
     var yValues = [
-    {% for keys, value in work_status_data.items%}
-    '{{value}}',
-{%endfor%}
+    {% for keys, value in work_status_data.items %}
+    '{{ value }}',
+{% endfor %}
 ];
     var barColors = [
     'rgba(255, 153, 153, 1)',
@@ -754,24 +948,26 @@
       },
       
     });
-</script>
 
-<script>
+
+    </script>
+
+    <script>
     const ctx5 = document.getElementById('educational-background-bar').getContext('2d');
     const myChart5 = new Chart(ctx5, {
         type: 'bar',
         data: {
             labels: [
-            {% for labels in educational_background_data%}
-                '{{labels}}',
-            {%endfor%}
+            {% for labels in educational_background_data %}
+                '{{ labels }}',
+            {% endfor %}
             ],
             datasets: [{
                 label: 'Count',
                 data: [
-                {% for keys, value in educational_background_data.items%}
-                    '{{value}}',
-                {%endfor%}
+                {% for keys, value in educational_background_data.items %}
+                    '{{ value }}',
+                {% endfor %}
                 ],
                 backgroundColor: [
                 'rgba(255, 153, 153, 0.2)',
@@ -802,24 +998,36 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
 
-<script>
-    var xValues = [{% for labels in educational_background_data%}
-    '{{labels}}',
-{%endfor%}];
-    var yValues = [{% for keys, value in educational_background_data.items%}
-    '{{value}}',
-{%endfor%}];
+    </script>
+
+
+    <script>
+    var xValues = [{% for labels in educational_background_data %}
+    '{{ labels }}',
+{% endfor %}];
+    var yValues = [{% for keys, value in educational_background_data.items %}
+    '{{ value }}',
+{% endfor %}];
     var barColors = [
     'rgba(255, 153, 153, 1)',
     'rgba(255, 204, 153, 1)',
@@ -845,25 +1053,27 @@
       },
       
     });
-</script>
 
 
-<script>
+    </script>
+
+
+    <script>
     const ctx6 = document.getElementById('sk-voter-bar').getContext('2d');
     const myChart6 = new Chart(ctx6, {
         type: 'bar',
         data: {
             labels: [
-            {% for labels in sk_voter_data%}
-                '{{labels}}',
-            {%endfor%}
+            {% for labels in sk_voter_data %}
+                '{{ labels }}',
+            {% endfor %}
             ],
             datasets: [{
                 label: 'Count',
                 data: [
-                {% for keys, value in sk_voter_data.items%}
-                    '{{value}}',
-                {%endfor%}
+                {% for keys, value in sk_voter_data.items %}
+                    '{{ value }}',
+                {% endfor %}
                 ],
                 backgroundColor: [
                 'rgba(255, 153, 153, 0.2)',
@@ -877,24 +1087,36 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
 
-<script>
-    var xValues = [{% for labels in sk_voter_data%}
-    '{{labels}}',
-{%endfor%}];
-    var yValues = [{% for keys, value in sk_voter_data.items%}
-    '{{value}}',
-{%endfor%}];
+    </script>
+
+
+    <script>
+    var xValues = [{% for labels in sk_voter_data %}
+    '{{ labels }}',
+{% endfor %}];
+    var yValues = [{% for keys, value in sk_voter_data.items %}
+    '{{ value }}',
+{% endfor %}];
     var barColors = [
     'rgba(255, 153, 153, 1)',
     'rgba(255, 204, 153, 1)',
@@ -911,24 +1133,26 @@
       },
       
     });
-</script>
 
 
-<script>
+    </script>
+
+
+    <script>
     const ctx7 = document.getElementById('national-voter-bar').getContext('2d');
     const myChart7 = new Chart(ctx7, {
         type: 'bar',
         data: {
             labels: [
-            {% for labels in national_voter_data%}
-                '{{labels}}',
-            {%endfor%}
+            {% for labels in national_voter_data %}
+                '{{ labels }}',
+            {% endfor %}
             ],
             datasets: [{
                 label: 'Count',
-                data: [{% for keys, value in national_voter_data.items%}
-                '{{value}}',
-            {%endfor%}],
+                data: [{% for keys, value in national_voter_data.items %}
+                '{{ value }}',
+            {% endfor %}],
                 backgroundColor: [
                 'rgba(255, 153, 153, 0.2)',
                 'rgba(255, 204, 153, 0.2)',
@@ -940,24 +1164,36 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                x: {
-                    beginAtZero: true
+        options:
+                {
+                    scales:
+                    {
+                        yAxes:
+                        [
+                            {
+                                display: true,
+                                ticks:
+                                    {
+                                        beginAtZero: true
+                                    }
+                            }
+                        ]
+                    }
                 }
-            }
         }
-    });
-</script>
+    );
 
 
-<script>
-    var xValues = [{% for labels in national_voter_data%}
-    '{{labels}}',
-{%endfor%}];
-    var yValues = [{% for keys, value in national_voter_data.items%}
-    '{{value}}',
-{%endfor%}];
+    </script>
+
+
+    <script>
+    var xValues = [{% for labels in national_voter_data %}
+    '{{ labels }}',
+{% endfor %}];
+    var yValues = [{% for keys, value in national_voter_data.items %}
+    '{{ value }}',
+{% endfor %}];
     var barColors = [
     'rgba(255, 153, 153, 1)',
     'rgba(255, 204, 153, 1)',
@@ -974,10 +1210,12 @@
       },
       
     });
-</script>
 
 
-    
+    </script>
+
+
+
 
 {% endblock %}
 </body>

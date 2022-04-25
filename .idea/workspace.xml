@@ -4,13 +4,9 @@
     <list default="true" id="38e8e435-6bfa-4e18-98c2-f5fa6c63fe54" name="Default Changelist" comment="test-image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiling/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_pdf/templates/pdf/pdf.html" beforeDir="false" afterPath="$PROJECT_DIR$/generate_pdf/templates/pdf/pdf.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiling/templates/dashboard/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/dashboard/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiling/templates/dashboard/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/dashboard/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiling/templates/login_page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/login_page/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiling/templates/pdf.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sk_profiling/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sk_profiling/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sk_profiling/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sk_profiling/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiling/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,9 @@
       <workItem from="1650116030008" duration="8990000" />
       <workItem from="1650131188274" duration="696000" />
       <workItem from="1650863051628" duration="50000" />
-      <workItem from="1650863104559" duration="12282000" />
+      <workItem from="1650863104559" duration="13049000" />
+      <workItem from="1650900983434" duration="41000" />
+      <workItem from="1650901042703" duration="2277000" />
     </task>
     <task id="LOCAL-00001" summary="april 15">
       <created>1650001338746</created>

@@ -40,6 +40,11 @@ def dashboard(response):
     doct_level = Profile.objects.filter(educational_background = "Doctorate Level").count()
     doct_grad = Profile.objects.filter(educational_background = "Doctorate Graduate").count()
 
+    sex_data = {
+        "Male":Profile.objects.filter(sex="Male").count(),
+        "Female":Profile.objects.filter(sex="Female").count()
+    }
+
     civil_status_data = {
         "Single":Profile.objects.filter(civil_status="Single").count(),
         "Married":Profile.objects.filter(civil_status="Married").count(),
@@ -115,6 +120,7 @@ def dashboard(response):
         "master_grad":master_grad,
         "doct_level":doct_level,
         "doct_grad":doct_grad,
+        "sex_data":sex_data,
         "civil_status_data":civil_status_data,
         "youth_classification_data":youth_classification_data,
         "youth_age_group_date":youth_age_group_date,
