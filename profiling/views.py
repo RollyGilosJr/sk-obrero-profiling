@@ -172,7 +172,7 @@ def profile_page_edit(response,slug):
     if form.is_valid():
         save = form.save(commit=False)
         # if may changes sa name - palitan din ang full_name tapos slug ng object
-        if (search.first_name != save.first_name or search.middle_name != save.middle_name or search.last_name != save.last_name or search.suffix != save.suffix):
+        if search.first_name != save.first_name or search.middle_name != save.middle_name or search.last_name != save.last_name or search.suffix != save.suffix:
             
             if save.middle_name != None:
                 if save.suffix != None:
@@ -181,14 +181,14 @@ def profile_page_edit(response,slug):
                     print(save.slug)
                     if Profile.objects.filter(first_name = save.first_name.title(), middle_name=save.middle_name.title(), last_name=save.last_name.title(), suffix=save.suffix.title()).exists():
                         messages.error(response, messages.error, "")
-                        return HttpResponseRedirect(profile_page,save.slug)
+                        return redirect(profile_page_edit,search.slug)
                 else:
                     save.full_name = save.last_name.title() + ", " + save.first_name.title() + " " + save.middle_name[0].title() + "."
                     save.slug = slugify(unicode(save.full_name))
                     print(save.slug)
                     if Profile.objects.filter(first_name = save.first_name.title(), middle_name=save.middle_name.title(), last_name=save.last_name.title()).exists():
                         messages.error(response, messages.error, "")
-                        return HttpResponseRedirect(profile_page,save.slug)
+                        return redirect(profile_page_edit,search.slug)
             else:
                 if save.suffix != None:
                     save.full_name = save.last_name.title() + ", " + save.first_name.title() + ", "+ save.suffix.title()
@@ -196,19 +196,20 @@ def profile_page_edit(response,slug):
                     print(save.slug)
                     if Profile.objects.filter(first_name = save.first_name.title(), last_name=save.last_name.title(), suffix=save.suffix.title()).exists():
                         messages.error(response, messages.error, "")
-                        return HttpResponseRedirect(profile_page,save.slug)
+                        return redirect(profile_page_edit,search.slug)
                 else:
                     save.full_name = save.last_name.title() + ", " + save.first_name.title()
                     save.slug = slugify(unicode(save.full_name))
                     print(save.slug)
                     if Profile.objects.filter(first_name = save.first_name.title(), last_name=save.last_name.title()).exists():
                         messages.error(response, messages.error, "")
-                        return HttpResponseRedirect(profile_page,save.slug)
+                        return redirect(profile_page_edit,search.slug)
                 
         # if walang changes sa name save na agad
         save.save()
+        return redirect(profile)
 
-        return redirect(profile_page,save.slug)
+
     current_user = response.user
     return render(response, "profiles/profile_page_edit.html", {
         "obj":obj,

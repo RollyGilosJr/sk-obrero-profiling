@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38e8e435-6bfa-4e18-98c2-f5fa6c63fe54" name="Default Changelist" comment="test-image">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiling/templates/profiles/profiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/profiles/profiles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiling/templates/profiles/add_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/profiles/add_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiling/templates/profiles/profile_page_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/templates/profiles/profile_page_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiling/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiling/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +42,10 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ram-ojt-project/sk-obrero-profiling&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/AWB/uhh/odoo13/Dockerfile&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
@@ -97,7 +104,10 @@
       <workItem from="1650863051628" duration="50000" />
       <workItem from="1650863104559" duration="13049000" />
       <workItem from="1650900983434" duration="41000" />
-      <workItem from="1650901042703" duration="2655000" />
+      <workItem from="1650901042703" duration="2984000" />
+      <workItem from="1650905911787" duration="2422000" />
+      <workItem from="1651012522178" duration="54000" />
+      <workItem from="1651018097298" duration="396000" />
     </task>
     <task id="LOCAL-00001" summary="april 15">
       <created>1650001338746</created>
